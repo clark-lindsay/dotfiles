@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/clarklindsay/Documents/DnD/eberron/11-14-2020'
+let g:netrw_dirhist_5='/Users/clarklindsay/Documents/code/temp-demo/src'
+let g:netrw_dirhist_4='/Users/clarklindsay/Documents/code/fairolina-web-app/src/util'
+let g:netrw_dirhist_3='/Users/clarklindsay/Documents/code/fairolina-web-app/src'
+let g:netrw_dirhist_2='/Users/clarklindsay/Documents/code/fairolina-web-app'
+let g:netrw_dirhist_1='/Users/clarklindsay/Documents/code/fairolina-web-app/src/routes'
+let g:netrw_dirhist_0='/Users/clarklindsay/Documents/code/twitter-kata/.git'
+let g:netrw_dirhist_9='/Users/clarklindsay/Documents/code/d-and-d/conjure-web/src'
+let g:netrw_dirhist_8='/Users/clarklindsay/Documents/code/d-and-d/Conjure5e/src'
+let g:netrw_dirhist_7='/Users/clarklindsay/Documents/code/microservice_architecture/.git'

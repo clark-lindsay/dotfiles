@@ -1,0 +1,5 @@
+"Plug 'cocopon/iceberg.vim'
+"Plug 'jdsimcoe/abstract.vim'
+"Plug 'arcticicestudio/nord-vim'
+Plug 'joshdick/onedark.vim'
+"Plug 'rakr/vim-one'
