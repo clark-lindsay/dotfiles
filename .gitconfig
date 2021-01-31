@@ -1,0 +1,14 @@
+[user]
+	name = clark-lindsay
+	email = clarklindsay96@gmail.com
+[color]
+	ui = auto
+[alias]
+	last = log -1 HEAD
+	glog = log --oneline --decorate --graph --all
+	adlog = log --pretty=format:'%C(yellow)%h%C(reset) - %C(cyan)%an%C(reset) [%C(green)%ar%C(reset)] %s'
+	grog = log -E -i --grep
+	cane = commit --amend --no-edit
+	unstage = reset
+	uncommit = reset --soft HEAD^
+	shlog = log --oneline --decorate
