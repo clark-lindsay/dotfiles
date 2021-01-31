@@ -29,10 +29,14 @@ call plug#end()
 
 call s:SourceConfigFilesIn('rcfiles')
 
-let g:onedark_color_overrides = {
-\ "black": {"gui": "1718FC", "cterm": "233", "cterm16": "0" },
-\}
-colorscheme onedark
-set background=dark
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+colorscheme sonokai
 
 nmap <leader>ch :noh<CR>
