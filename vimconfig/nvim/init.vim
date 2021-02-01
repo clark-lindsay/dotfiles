@@ -8,6 +8,7 @@ set softtabstop=2
 set noexpandtab
 set ignorecase 
 set smartcase
+nmap Y y$
 
 " Tells nvim to treat all .svelte files as html
 au! BufNewFile,BufRead *.svelte set ft=html
