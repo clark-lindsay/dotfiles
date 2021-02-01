@@ -8,6 +8,7 @@ set softtabstop=2
 set noexpandtab
 set ignorecase 
 set smartcase
+set incsearch
 nmap Y y$
 
 " Tells nvim to treat all .svelte files as html
@@ -36,8 +37,6 @@ if has('termguicolors')
 endif
 
 let g:sonokai_style = 'andromeda'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
 colorscheme sonokai
 
 nmap <leader>ch :noh<CR>
