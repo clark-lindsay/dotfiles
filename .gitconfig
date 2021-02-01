@@ -13,5 +13,4 @@
 	uncommit = reset --soft HEAD^
 	shlog = log --oneline --decorate
 [pull]
-   rebase = true
-
+	rebase = true
