@@ -1,6 +1,6 @@
 [user]
 	name = clark-lindsay
-	email = clarklindsay96@gmail.com
+	email = clark.lindsay@integral.io
 [color]
 	ui = auto
 [alias]
@@ -9,8 +9,12 @@
 	adlog = log --pretty=format:'%C(yellow)%h%C(reset) - %C(cyan)%an%C(reset) [%C(green)%ar%C(reset)] %s'
 	grog = log -E -i --grep
 	cane = commit --amend --no-edit
-	unstage = reset
+	unstage = reset 
 	uncommit = reset --soft HEAD^
 	shlog = log --oneline --decorate
+[credential]
+	helper = cache
 [pull]
 	rebase = true
+[commit]
+	template = /Users/clinds29/.gitmessage
