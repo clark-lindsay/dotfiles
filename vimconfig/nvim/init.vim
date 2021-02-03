@@ -29,8 +29,11 @@ call plug#begin(stdpath('data') . '/plugged')
 call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
 
-call s:SourceConfigFilesIn('rcfiles')
+" for extensions not written in typescript only:
+" coc will check to install/ update these whenvere the service starts
+let g:coc_global_extensions = ['coc-solargraph']
 
+call s:SourceConfigFilesIn('rcfiles')
 
 if has('termguicolors')
   set termguicolors
