@@ -30,7 +30,7 @@ call plug#end()
 
 " for extensions not written in typescript only:
 " coc will check to install/ update these whenvere the service starts
-let g:coc_global_extensions = ['coc-solargraph']
+let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir']
 
 call s:SourceConfigFilesIn('rcfiles')
 
