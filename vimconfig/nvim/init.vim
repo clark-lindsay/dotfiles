@@ -9,7 +9,6 @@ set noexpandtab
 set ignorecase 
 set smartcase
 set incsearch
-nmap Y y$
 
 " Tells nvim to treat all .svelte files as html
 au! BufNewFile,BufRead *.svelte set ft=html
@@ -43,3 +42,6 @@ let g:sonokai_style = 'andromeda'
 colorscheme sonokai
 
 nmap <leader>ch :noh<CR>
+" The \ is needed to escape the pipe char
+inoremap <c-p> <space>\|><space>
+nmap Y y$
