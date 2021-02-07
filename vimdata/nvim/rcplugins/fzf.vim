@@ -1,4 +1,4 @@
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-f> :<C-u>FZF<CR>
