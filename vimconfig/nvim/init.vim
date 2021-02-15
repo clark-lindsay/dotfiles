@@ -38,7 +38,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
-let g:sonokai_style = 'andromeda'
+let g:sonokai_style = 'default'
 colorscheme sonokai
 
 nmap <leader>ch :noh<CR>
