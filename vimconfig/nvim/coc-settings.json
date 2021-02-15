@@ -12,16 +12,20 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-		"svelte",
+    "svelte",
     "rust"
   ],
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact","typescript", "typescriptreact"],
   "html.format.enable": true,
-  "python.jediEnabled": false,
   "rust-client.updateOnStartup": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "ℹ",
-  "diagnostic.hintSign": "➤"
+  "diagnostic.hintSign": "➤",
+  "languageserver": {
+    "kotlin": {
+      "command": "/Users/clinds29/Documents/language-servers/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    }
+  }
 }
