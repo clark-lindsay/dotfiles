@@ -13,6 +13,7 @@ set incsearch
 " Tells nvim to treat all .svelte files as html
 au! BufNewFile,BufRead *.svelte set ft=html
 
+
 " Thanks to Chris Toomey (github.com/christoomey) for the elegant
 " function and pattern for sourcing config files
 function! s:SourceConfigFilesIn(directory)
@@ -27,17 +28,16 @@ endfunction
 call plug#begin(stdpath('data') . '/plugged')
 call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
+call s:SourceConfigFilesIn('rcfiles')
 
 " for extensions not written in typescript only:
 " coc will check to install/ update these whenvere the service starts
 let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir']
 
-call s:SourceConfigFilesIn('rcfiles')
-
 if has('termguicolors')
   set termguicolors
 endif
-
+let g:lightline = {'colorscheme' : 'sonokai'}
 let g:sonokai_style = 'default'
 colorscheme sonokai
 
