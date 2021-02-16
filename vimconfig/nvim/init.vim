@@ -41,6 +41,17 @@ let g:lightline = {'colorscheme' : 'sonokai'}
 let g:sonokai_style = 'default'
 colorscheme sonokai
 
+" Handles the problem with both `coc.nvim` and tpope's `endwise` both remapping
+" <CR> to handle completion
+inoremap <silent> <CR> <C-r>=<SID>coc_confirm()<CR>
+function! s:coc_confirm() abort
+  if pumvisible()
+    return coc#_select_confirm()
+  else
+    return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  endif
+endfunction
+
 nmap <leader>ch :noh<CR>
 " The \ is needed to escape the pipe char
 inoremap <c-p> <space>\|><space>
