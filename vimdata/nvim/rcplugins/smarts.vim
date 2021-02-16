@@ -13,4 +13,4 @@ Plug 'tpope/vim-speeddating'
 "current file is new, blank, or otherwise insufficient, by looking at other
 "files of the same type in the current and parent directories. In lieu of
 "adjusting 'softtabstop', 'smarttab' is enabled.
-Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-sleuth'
