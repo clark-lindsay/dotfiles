@@ -3,30 +3,19 @@ Plug 'neomake/neomake'
 Plug 'itchyny/lightline.vim'
 
 let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"
+let g:test#javascript#reactscripts#options = "--watch-all=false"
 let test#strategy = "neomake"
+
 nnoremap <Leader>T :TestSuite<CR>
 nnoremap <Leader>tf :TestFile<CR>
 nnoremap <leader>tfv :exec RunTestFileVerbose()<CR>
 nnoremap <Leader>tl :TestLast<CR>
 nnoremap <Leader>tn :TestNearest<CR>
-nnoremap <leader>tv :exec RunTestVerbose()<CR>
+nnoremap <leader>tnv :exec RunTestNearestVerbose()<CR>
 
 function! TestStatus() abort
   return g:testing_status
 endfunction
-
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus','gitbranch', 'teststatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-			\   'gitbranch': 'FugitiveHead',
-      \   'teststatus': 'TestStatus'
-      \ },
-\ }
 
 augroup neomake_hook
   au!
@@ -50,8 +39,7 @@ function! TestFinished() abort
   endif
 endfunction
 
-
-function! RunTestVerbose()
+function! RunTestNearestVerbose()
 	let g:test#javascript#jest#options = "--detectOpenHandles"
   :TestNearest -strategy=neovim 
   let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"

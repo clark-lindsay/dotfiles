@@ -37,9 +37,20 @@ let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir']
 if has('termguicolors')
   set termguicolors
 endif
-let g:lightline = {'colorscheme' : 'sonokai'}
 let g:sonokai_style = 'default'
 colorscheme sonokai
+let g:lightline = {
+      \ 'colorscheme': 'sonokai',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus','gitbranch', 'teststatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+			\   'gitbranch': 'FugitiveHead',
+      \   'teststatus': 'TestStatus'
+      \ },
+\ }
 
 " Handles the problem with both `coc.nvim` and tpope's `endwise` both remapping
 " <CR> to handle completion
