@@ -2,7 +2,7 @@ Plug 'vim-test/vim-test'
 Plug 'neomake/neomake'
 Plug 'itchyny/lightline.vim'
 
-let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles"
+let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"
 let test#strategy = "neomake"
 nnoremap <Leader>T :TestSuite<CR>
 nnoremap <Leader>tf :TestFile<CR>
@@ -54,12 +54,12 @@ endfunction
 function! RunTestVerbose()
 	let g:test#javascript#jest#options = "--detectOpenHandles"
   :TestNearest -strategy=neovim 
-	let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles"
+  let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"
 endfunction
 
 function! RunTestFileVerbose()
-let g:test#javascript#jest#options = "--detectOpenHandles"
+  let g:test#javascript#jest#options = "--detectOpenHandles"
   :TestFile -strategy=neovim 
-	let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles"
+  let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"
 endfunction
 
