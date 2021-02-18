@@ -63,7 +63,11 @@ function! s:coc_confirm() abort
   endif
 endfunction
 
+" Clear highlighting
 nmap <leader>ch :noh<CR>
 " The \ is needed to escape the pipe char
 inoremap <c-p> <space>\|><space>
+" Line up 'Y' with the other linewise commands
 nmap Y y$
+" Make a newline above and below the cursor
+nmap <leader><CR> [<space>]<space>
