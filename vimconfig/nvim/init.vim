@@ -71,3 +71,7 @@ inoremap <c-p> <space>\|><space>
 nmap Y y$
 " Make a newline above and below the cursor
 nmap <leader><CR> [<space>]<space>
+" Easily hard quit all buffers
+nmap <leader>Q :qa!
+" use qq to record into register 'q', and Q to replay it
+nmap Q @q
