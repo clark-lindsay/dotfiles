@@ -72,6 +72,6 @@ nmap Y y$
 " Make a newline above and below the cursor
 nmap <leader><CR> [<space>]<space>
 " Easily hard quit all buffers
-nmap <leader>Q :qa!
+nmap <leader>Q :qa!<CR>
 " use qq to record into register 'q', and Q to replay it
 nmap Q @q
