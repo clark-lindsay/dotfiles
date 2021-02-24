@@ -3,7 +3,7 @@ Plug 'neomake/neomake'
 Plug 'itchyny/lightline.vim'
 
 let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"
-let g:test#javascript#reactscripts#options = "--watch-all=false"
+let g:test#javascript#reactscripts#options = "--reporters jest-vim-reporter --watch-all=false"
 let test#strategy = "neomake"
 
 nnoremap <Leader>T :TestSuite<CR>
