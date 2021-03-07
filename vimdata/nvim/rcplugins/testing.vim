@@ -10,6 +10,7 @@ nnoremap <Leader>T :TestSuite<CR>
 nnoremap <Leader>tf :TestFile<CR>
 nnoremap <leader>vtf :exec RunTestFileVerbose()<CR>
 nnoremap <Leader>tl :TestLast<CR>
+nnoremap <leader>vtl :exec RunTestLastVerbose()<CR>
 nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <leader>vtn :exec RunTestNearestVerbose()<CR>
 
@@ -55,3 +56,10 @@ function! RunTestFileVerbose()
   let g:test#javascript#reactscripts#options = '--reporters jest-vim-reporter --watch-all=false'
 endfunction
 
+function! RunTestLastVerbose()
+  let g:test#javascript#jest#options = "--detectOpenHandles"
+  let g:test#javascript#reactscripts#options = '--watch-all=false'
+  :TestLast -strategy=neovim 
+  let g:test#javascript#jest#options = "--reporters jest-vim-reporter --detectOpenHandles --watch-all=false"
+  let g:test#javascript#reactscripts#options = '--reporters jest-vim-reporter --watch-all=false'
+endfunction
