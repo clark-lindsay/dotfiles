@@ -8,10 +8,10 @@ let test#strategy = "neomake"
 
 nnoremap <Leader>T :TestSuite<CR>
 nnoremap <Leader>tf :TestFile<CR>
-nnoremap <leader>tfv :exec RunTestFileVerbose()<CR>
+nnoremap <leader>vtf :exec RunTestFileVerbose()<CR>
 nnoremap <Leader>tl :TestLast<CR>
 nnoremap <Leader>tn :TestNearest<CR>
-nnoremap <leader>tnv :exec RunTestNearestVerbose()<CR>
+nnoremap <leader>vtn :exec RunTestNearestVerbose()<CR>
 
 function! TestStatus() abort
   return g:testing_status
