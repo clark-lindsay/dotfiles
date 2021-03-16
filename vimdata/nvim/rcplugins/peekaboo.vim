@@ -1,1 +1,1 @@
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
