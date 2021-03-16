@@ -9,6 +9,7 @@ set noexpandtab
 set ignorecase 
 set smartcase
 set incsearch
+set inccommand=split
 
 " Tells nvim to treat all .svelte files as html
 au! BufNewFile,BufRead *.svelte set ft=html
