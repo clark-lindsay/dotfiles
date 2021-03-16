@@ -81,6 +81,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+" open the refactor window for the current symbol
+nmap <leader>rf <Plug>(coc-refactor)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
