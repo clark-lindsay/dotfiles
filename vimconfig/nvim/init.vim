@@ -74,5 +74,11 @@ nmap Y y$
 nmap <leader><CR> [<space>]<space>
 " Easily hard quit all buffers
 nmap <leader>Q :qa!<CR>
+" Easily hard quit the current buffer
+nmap <leader>q :q!<CR>
+" Easily write and quit all buffers
+nmap <leader>WQ :wqa<CR>
+" Easily write and quit the current buffer
+nmap <leader>wq :wq<CR>
 " use qq to record into register 'q', and Q to replay it
 nmap Q @q
