@@ -98,15 +98,13 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" 'QuickAction': applys codeAction to the symbol under the cursor by using visual mode
-nmap <leader>qa v<Plug>(coc-codeaction-selected)<C-C>
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>ca  <Plug>(coc-codeaction-selected)
 nmap <leader>ca  <Plug>(coc-codeaction-selected)
 
-" 'QuickFix': Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+" 'AutoFix': Apply AutoFix to problem on the current line.
+nmap <leader>af  <Plug>(coc-fix-current)
 
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
