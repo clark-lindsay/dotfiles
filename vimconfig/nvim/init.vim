@@ -82,3 +82,6 @@ nmap <leader>WQ :wqa<CR>
 nmap <leader>wq :wq<CR>
 " use qq to record into register 'q', and Q to replay it
 nmap Q @q
+
+" C*hange to D*irectory of C*urrent file
+command CDC lcd %:p:h
