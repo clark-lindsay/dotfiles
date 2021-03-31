@@ -22,4 +22,17 @@ let g:grepper.quickfix      = 1
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+" Open f*zf to find files
 nnoremap <C-f> :<C-u>FZF<CR>
+" Use fzf's `Commands` command to find a co*mmand
+" using `co` since it is a good roll on colemak & I use `ch` to c*lear
+" h*ighlighting
+nmap <leader>co :Commands<CR>
+xmap <leader>co :Commands<CR>
+
+" NERDTree for file explorer and file system operations
+Plug 'preservim/nerdtree'
+" adds git status flags to the file tree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
