@@ -64,6 +64,9 @@ function! s:coc_confirm() abort
   endif
 endfunction
 
+" disables some default mappings from vim-polyglot
+let g:scala_use_default_keymappings = 0
+
 " Clear highlighting
 nmap <leader>ch :noh<CR>
 " The \ is needed to escape the pipe char
