@@ -14,3 +14,7 @@ Plug 'tpope/vim-speeddating'
 "files of the same type in the current and parent directories. In lieu of
 "adjusting 'softtabstop', 'smarttab' is enabled.
 Plug 'tpope/vim-sleuth'
+
+" Smart mappings for navigating lists and text, mostly with `[]` bracket
+" mappings
+Plug 'tpope/vim-unimpaired'
