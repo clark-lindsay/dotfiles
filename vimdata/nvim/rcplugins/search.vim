@@ -1,3 +1,5 @@
+"----- Search for symbols or patterns across files -----
+
 Plug 'mhinz/vim-grepper'
 
 nnoremap <leader>G :Grepper -tool ag<CR>
@@ -18,6 +20,10 @@ let g:grepper.quickfix      = 1
 " Ack (with the Silver Searcher) for regex searches
 " the ! bang keeps one from jumping to the first result immediately
 
+"--- End Search for symbols or patterns across files ---
+
+"----- Finding a single file, directory, or command -----
+
 " fzf for file searching
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -30,9 +36,15 @@ nnoremap <C-f> :<C-u>FZF<CR>
 nmap <leader>co :Commands<CR>
 xmap <leader>co :Commands<CR>
 
+"--- End Finding a single file, directory, or command ---
+
+"----- Explore the file tree -----
+
 " NERDTree for file explorer and file system operations
 Plug 'preservim/nerdtree'
 " adds git status flags to the file tree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+"--- End Explore the file tree ---
