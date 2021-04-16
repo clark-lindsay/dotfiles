@@ -2,7 +2,7 @@
 
 Plug 'mhinz/vim-grepper'
 
-nnoremap <leader>G :Grepper -tool ag<CR>
+nnoremap <leader>G :Grepper -tool ag -grepprg ag --path-to-ignore ~/.ignore<CR>
 
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
