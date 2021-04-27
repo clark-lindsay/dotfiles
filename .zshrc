@@ -18,8 +18,28 @@ else
 	PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{cyan}%1~%f%b %# '
 fi
 
+export CLICOLOR=true
+
+## ----- Ag ----- ##
+
+alias ag='ag --path-to-ignore ~/.ignore'
+
+## ----End Ag --- ##
+
+## ----- fzf ----- ##
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
+# Fuzzy Change Directory
+# Fuzzy find a directory
+alias fcd='cd "$(find * -type d | fzf)"'
+
+# FuZzy Preview
+# Find a file while displaying a syntax highlighted preview of it on the right
+alias fzp='fzf --preview "bat --color=always --style=numbers --line-range=:150 {}"'
+
+## --- End fzf --- ##
+
 
 # -------- End Personal Config -------- #
 # If you come from bash you might have to change your $PATH.
