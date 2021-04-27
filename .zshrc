@@ -30,6 +30,10 @@ alias ag='ag --path-to-ignore ~/.ignore'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Use seoul256 dark as the default color theme for fzf in honor of fzf's creator
+# junegunn/seoul256.vim (dark)
+export FZF_DEFAULT_OPTS='--color=bg+:#3F3F3F,bg:#4B4B4B,border:#6B6B6B,spinner:#98BC99,hl:#719872,fg:#D9D9D9,header:#719872,info:#BDBB72,pointer:#E12672,marker:#E17899,fg+:#D9D9D9,preview-bg:#3F3F3F,prompt:#98BEDE,hl+:#98BC99'
+
 # Fuzzy Change Directory
 # Fuzzy find a directory
 alias fcd='cd "$(find * -type d | fzf)"'
