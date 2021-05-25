@@ -8,3 +8,7 @@ if has('nvim')
 	tnoremap <C-i> <c-\><c-n><c-w>k
 	tnoremap <C-o> <c-\><c-n><c-w>l
 endif
+
+" Use `unimpaired`-style bracket mappings to navigate jump list
+nnoremap [j <C-o>
+nnoremap ]j <C-i>

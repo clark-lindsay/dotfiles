@@ -14,7 +14,6 @@ set inccommand=split
 " Tells nvim to treat all .svelte files as html
 au! BufNewFile,BufRead *.svelte set ft=html
 
-
 " Thanks to Chris Toomey (github.com/christoomey) for the elegant
 " function and pattern for sourcing config files
 function! s:SourceConfigFilesIn(directory)
@@ -68,23 +67,22 @@ endfunction
 let g:scala_use_default_keymappings = 0
 
 " Clear highlighting
-nmap <leader>ch :noh<CR>
+nnoremap <leader>ch :noh<CR>
 " The \ is needed to escape the pipe char
 inoremap <c-p> <space>\|><space>
 " Line up 'Y' with the other linewise commands
-nmap Y y$
+nnoremap Y y$
 " Make a newline above and below the cursor
-nmap <leader><CR> [<space>]<space>
+nnoremap <leader><CR> [<space>]<space>
 " Easily hard quit all buffers
-nmap <leader>Q :qa!<CR>
+nnoremap <leader>Q :qa!<CR>
 " Easily hard quit the current buffer
-nmap <leader>q :q!<CR>
+nnoremap <leader>q :q!<CR>
 " Easily write and quit all buffers
-nmap <leader>WQ :wqa<CR>
+nnoremap <leader>WQ :wqa<CR>
 " Easily write and quit the current buffer
-nmap <leader>wq :wq<CR>
+nnoremap <leader>wq :wq<CR>
 " use qq to record into register 'q', and Q to replay it
-nmap Q @q
-
+nnoremap Q @q
 " C*hange to D*irectory of C*urrent file
 command CDC lcd %:p:h
