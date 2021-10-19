@@ -20,6 +20,14 @@ fi
 
 export CLICOLOR=true
 
+## ----- ytfzf ----- ##
+
+export YTFZF_CONFIG_DIR=$HOME/.config/ytfzf
+export YTFZF_CONFIG_FILE=$YTFZF_CONFIG_DIR/conf.sh
+export YTFZF_THUMB_DISP_METHOD="chafa"
+
+## ----End ytfzf --- ##
+
 ## ----- Ag ----- ##
 
 alias ag='ag --path-to-ignore ~/.ignore'
