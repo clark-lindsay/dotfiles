@@ -13,19 +13,12 @@
     "typescript",
     "typescriptreact",
     "svelte",
-    "rust"
+    "rust",
+    "elixir"
   ],
   "eslint.autoFixOnSave": true,
-  "html.format.enable": true,
-  "rust-client.updateOnStartup": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "ℹ",
-  "diagnostic.hintSign": "➤",
-  "languageserver": {
-    "kotlin": {
-      "command": "/Users/clinds29/Documents/language-servers/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
-      "filetypes": ["kotlin"]
-    }
-  }
+  "diagnostic.hintSign": "➤"
 }
