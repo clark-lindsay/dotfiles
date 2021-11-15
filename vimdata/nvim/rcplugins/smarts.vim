@@ -6,7 +6,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-endwise'
 
 " Allows for incrementing/ decrementing dates/ times with <C-a> and <C-d>
-Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-speeddating'
 
 "Excerpt from plugin description: This plugin automatically adjusts 'shiftwidth'
 "and 'expandtab' heuristically based on the current file, or, in the case the
