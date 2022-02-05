@@ -4,4 +4,5 @@
 "Plug 'joshdick/onedark.vim'
 "Plug 'rakr/vim-one'
 Plug 'sainnhe/sonokai'
-" Plug 'sickill/vim-monokai'
+Plug 'junegunn/seoul256.vim'
+"Plug 'sickill/vim-monokai'

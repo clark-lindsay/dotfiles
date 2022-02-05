@@ -30,6 +30,9 @@ call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
 call s:SourceConfigFilesIn('rcfiles')
 
+" enable syntax highlighting
+syntax on
+
 " for extensions not written in typescript only:
 " coc will check to install/ update these whenvere the service starts
 let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir']
@@ -38,7 +41,8 @@ if has('termguicolors')
   set termguicolors
 endif
 let g:sonokai_style = 'default'
-colorscheme sonokai
+let g:seoul256_background = 233
+colo sonokai
 let g:lightline = {
       \ 'colorscheme': 'sonokai',
       \ 'active': {
@@ -89,7 +93,7 @@ command CDC lcd %:p:h
 
 " Call the setup function for hop.nvim
 " I thought vim-plug would call this by default, but it is not atm...
-:lua require'hop'.setup()
+" :lua require'hop'.setup()
 
 :lua <<EOF
 require'nvim-treesitter.configs'.setup {
