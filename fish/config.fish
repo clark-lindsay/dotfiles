@@ -2,9 +2,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-export VIMCONFIG=~/.config/nvim
-export VIMDATA=~/.local/share/nvim
-set -U EDITOR nvim
+set -x VIMCONFIG "~/.config/nvim"
+set -x VIMDATA   "~/.local/share/nvim"
+set -x EDITOR    nvim
 
 nvm use v16.11 1> /dev/null
 
