@@ -25,3 +25,4 @@ set -g hydro_color_git            "E2DF70"
 set -g hydro_fetch                true
 set -g hydro_multiline            true
 set -g fish_prompt_pwd_dir_length 2
+fish_add_path /usr/local/sbin
