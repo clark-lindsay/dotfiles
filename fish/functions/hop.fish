@@ -1,0 +1,1 @@
+alias "hop" "z"

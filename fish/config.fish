@@ -14,7 +14,7 @@ end
 
 
 # fzf start
-fzf_configure_bindings --git_log=\cg --directory=\ct --history=\ch --variables=\cv --git_status=\ca
+fzf_configure_bindings --git_log=\cg --directory=\ct --history=\ch --variables=\cv --git_status=\ca --processes=\cp
 #fzf end
 
 # nintendo joy-con blue and red 
