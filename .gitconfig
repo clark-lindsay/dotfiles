@@ -18,3 +18,5 @@
 	rebase = true
 [commit]
 	template = /Users/clinds29/.gitmessage
+[core]
+	editor = nvim
