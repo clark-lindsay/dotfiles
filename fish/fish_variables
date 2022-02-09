@@ -12,11 +12,10 @@ SETUVAR _fisher_jethrokuan_2F_z_files:/Users/clarklindsay/\x2econfig/fish/functi
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/clarklindsay/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_hydro_files:/Users/clarklindsay/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fish_title\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/conf\x2ed/hydro\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/Users/clarklindsay/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/nvm\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1ePatrickF1/fzf\x2efish\x1ejorgebucaran/hydro\x1ejethrokuan/z
-SETUVAR _hydro_git_20071:master\x20
-SETUVAR _hydro_git_24102:master\x20
-SETUVAR _hydro_git_28328:\x1d
-SETUVAR _hydro_git_69139:main\x20
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1ePatrickF1/fzf\x2efish\x1ejorgebucaran/hydro\x1ejethrokuan/z\x1ettscoff/fuzzy_cd
+SETUVAR _fisher_ttscoff_2F_fuzzy__cd_files:/Users/clarklindsay/\x2econfig/fish/functions/__fuzzy_cd\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fcd_ffdir\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fcd_ffmark\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fcd_jump\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fcd_shortest\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/functions/fcd_warn\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/conf\x2ed/fuzzy_cd\x2efish\x1e/Users/clarklindsay/\x2econfig/fish/conf\x2ed/fuzzy_cd_common\x2efish
+SETUVAR _hydro_git_69139:\x1d
+SETUVAR _hydro_git_79132:master\x20
 SETUVAR fish_color_autosuggestion:5fd7af
 SETUVAR fish_color_cancel:normal
 SETUVAR fish_color_command:00afff
