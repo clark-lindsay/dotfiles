@@ -29,7 +29,7 @@ function fcd_ffmark -d "fuzzy find a jump mark"
 		# Search .marks
 		set -l results (find -LE -s "$MARKPATH" -iregex "$MARKPATH/$regex" -type d -maxdepth 1 | head -n 1 | tr -d "\n")
 		# Get shortest match
-		set found (fcd_shortest $results)
+		set found (shortest $results)
 
 		if test -n "$found"
 			set found (string replace -r '^./' '' $found)
@@ -37,7 +37,7 @@ function fcd_ffmark -d "fuzzy find a jump mark"
 		else
 			set -l results (find -LE -s "$MARKPATH" -iregex "$MARKPATH/.*$regex" -type d -maxdepth 1 | head -n 1 | tr -d "\n")
 			# Get shortest match
-			set found (fcd_shortest $results)
+			set found (shortest $results)
 			if test -n "$found"
 				set found (string replace -r '^./' '' $found)
 				set new_path $found

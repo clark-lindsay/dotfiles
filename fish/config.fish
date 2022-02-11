@@ -18,10 +18,12 @@ fzf_configure_bindings --git_log=\cg --directory=\ct --history=\ch --variables=\
 #fzf end
 
 # nintendo joy-con blue and red 
-set -g hydro_color_prompt "00C3E3"
-set -g hydro_color_error  "FF4554"
+set -g hydro_color_prompt         "00C3E3"
+set -g hydro_color_error          "FF4554"
 # soft yellow
 set -g hydro_color_git            "E2DF70"
+# grayish-blue
+set -g hydro_color_duration       "5E819D"
 set -g hydro_fetch                true
 set -g hydro_multiline            true
 set -g fish_prompt_pwd_dir_length 2
