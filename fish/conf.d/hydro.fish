@@ -51,7 +51,7 @@ function _hydro_prompt --on-event fish_prompt
 
     for code in $last_status
         if test $code -ne 0
-            set _hydro_prompt "$_hydro_newline$_hydro_color_error"[(string join "\x1b[2mǀ\x1b[22m" $last_status)]
+            set _hydro_prompt "$_hydro_newline$_hydro_color_error"[(echo $last_status)]
             break
         end
     end
@@ -107,6 +107,8 @@ function _hydro_uninstall --on-event hydro_uninstall
         source
     functions --erase (functions --all | string match --entire --regex "^_?hydro_")
 end
+
+set --global hydro_color_normal (set_color normal)
 
 for color in hydro_color_{pwd,git,error,prompt,duration}
     function $color --on-variable $color --inherit-variable color
