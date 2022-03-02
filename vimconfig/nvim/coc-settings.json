@@ -1,4 +1,5 @@
 {
+  "html.filetypes": ["html","handlebars","htmldjango","blade", "html.heex", "jsx", "tsx"],
   "diagnostic.checkCurrentLine": true,
   "coc.preferences.colorSupport": true,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
