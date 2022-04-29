@@ -137,22 +137,18 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
--- Additional Plugins
-lvim.plugins = {
-  {
-    "sainnhe/sonokai",
-  },
-  {
-    "ggandor/lightspeed.nvim"
-  },
-  {
-    "tpope/vim-surround"
-  },
-  {
-    "tpope/vim-unimpaired"
-  },
-}
 
+-- normal mode window navigation mappings for colemak keyboard layout
+vim.api.nvim_set_keymap('n', '<C-n>', '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-e>', '<C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-i>', '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-o>', '<C-w>l', { noremap = true })
+
+-- terminal mode window navigation mappings for colemak keyboard layout
+vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>l', { noremap = true })
 
 -- Line up 'Y' with the other linewise commands
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
@@ -165,6 +161,26 @@ vim.api.nvim_set_keymap('n', 'Q', '@q', { noremap = true })
 
 -- toggle highlight on search
 vim.api.nvim_set_keymap('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true, silent = true })
+
+-- Additional Plugins
+lvim.plugins = {
+  { "sainnhe/sonokai", },
+  { "ggandor/lightspeed.nvim" },
+  { "tpope/vim-surround" },
+  { "tpope/vim-unimpaired" },
+  { "vim-test/vim-test" },
+}
+
+vim.g["test#neovim#start_normal"] = 1 -- start test buffer in Normal mode
+
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Trouble",
+  n = { "<cmd>TestNearest<cr>", "Test Nearest" },
+  f = { "<cmd>TestFile<cr>", "Test File" },
+  l = { "<cmd>TestLast<cr>", "Test Last" },
+  s = { "<cmd>TestSuite<cr>", "Test Suite" },
+  v = { "<cmd>TestVisit<cr>", "Test Visit" },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
