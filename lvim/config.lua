@@ -53,27 +53,27 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+-- After changing plugin config exit and reopen LunarVim, Run :MasonInstall
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "css",
+  "elixir",
+  "java",
   "javascript",
   "json",
   "lua",
+  "proto",
   "python",
-  "typescript",
-  "tsx",
-  "css",
   "rust",
-  "java",
+  "tsx",
+  "typescript",
   "yaml",
 }
 
@@ -83,7 +83,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+lvim.lsp.installer.setup.automatic_installation = true
 
 -- ---@usage Select which servers should be configured manually. Requires `:LvimCacheReset` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
@@ -104,20 +104,37 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "prettier",
+    extra_args = { "--print-with", "100" },
+    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  },
+}
+
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+code_actions.setup {
+  {
+    name = "eslint_d"
+  },
+  {
+    command = "proselint",
+    filetypes = { "markdown", "tex", "gitmessage" }
+  },
+}
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  {
+    filetypes = { "elixir" },
+    command = "credo",
+    args = { "suggest", "--format", "json", "--read-from-stdin", "$FILENAME" }
+  },
+  {
+    name = "eslint_d"
+  }
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
@@ -137,6 +154,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
+-- use standard shell instead of `fish`, per lunarvim recommendation
+vim.opt.shell = "/bin/sh"
 
 -- normal mode window navigation mappings for colemak keyboard layout
 vim.api.nvim_set_keymap('n', '<C-n>', '<C-w>h', { noremap = true })
@@ -146,9 +165,9 @@ vim.api.nvim_set_keymap('n', '<C-o>', '<C-w>l', { noremap = true })
 
 -- terminal mode window navigation mappings for colemak keyboard layout
 vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>h', { noremap = true })
-vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>j', { noremap = true })
-vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>k', { noremap = true })
-vim.api.nvim_set_keymap('t', '<C-n>', '<C-\\><C-n><C-w>l', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-e>', '<C-\\><C-e><C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-i>', '<C-\\><C-i><C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-o>', '<C-\\><C-o><C-w>l', { noremap = true })
 
 -- Line up 'Y' with the other linewise commands
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
@@ -164,17 +183,20 @@ vim.api.nvim_set_keymap('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap 
 
 -- Additional Plugins
 lvim.plugins = {
-  { "sainnhe/sonokai", },
-  { "ggandor/lightspeed.nvim" },
+  { "sainnhe/sonokai" },
+  { "ggandor/leap.nvim" },
   { "tpope/vim-surround" },
   { "tpope/vim-unimpaired" },
+  { "tpope/vim-repeat" },
   { "vim-test/vim-test" },
 }
 
 vim.g["test#neovim#start_normal"] = 1 -- start test buffer in Normal mode
 
+require('leap').add_default_mappings(true) -- `true` overrides anything else that conflicts
+
 lvim.builtin.which_key.mappings["t"] = {
-  name = "Trouble",
+  name = "Test",
   n = { "<cmd>TestNearest<cr>", "Test Nearest" },
   f = { "<cmd>TestFile<cr>", "Test File" },
   l = { "<cmd>TestLast<cr>", "Test Last" },
