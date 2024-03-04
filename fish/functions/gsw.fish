@@ -1,0 +1,1 @@
+alias "gsw" "git switch"
