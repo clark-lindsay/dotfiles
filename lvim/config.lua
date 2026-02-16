@@ -18,6 +18,9 @@ lvim.colorscheme = "sonokai"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
+ vim.g.mapleader = " "
+
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
@@ -61,18 +64,14 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
-  "c",
   "css",
   "elixir",
   "heex",
-  "java",
   "javascript",
   "markdown",
   "json",
   "lua",
-  "python",
   "rust",
-  "svelte",
   "tsx",
   "typescript",
   "yaml",
@@ -180,18 +179,22 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   { "epwalsh/obsidian.nvim" },
-  { "ggandor/leap.nvim" },
+  {
+    "leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim" 
+  },
   { "sainnhe/sonokai" },
   { "rebelot/kanagawa.nvim" },
   { "tpope/vim-surround" },
   { "tpope/vim-unimpaired" },
   { "vim-test/vim-test" },
-  {
-    "mhanberg/output-panel.nvim",
-    config = function()
-      require("output_panel").setup()
-    end
-  },
+  { 'nvim-mini/mini.align', version = '*' },
+  -- {
+  --   "mhanberg/output-panel.nvim",
+  --   config = function()
+  --     require("output_panel").setup()
+  --   end
+  -- },
   {
     "elixir-tools/elixir-tools.nvim",
     version = "*",
@@ -214,7 +217,7 @@ lvim.plugins = {
         },
         credo = {},
         elixirls = {
-          enable = true,
+          enable = false,
           settings = elixir.elixirls.settings {
             dialyzerEnabled = true,
             enableTestLenses = false,
@@ -233,7 +236,12 @@ lvim.plugins = {
   },
 }
 
-require('leap').add_default_mappings()
+require("mini.align").setup({
+  mappings = {
+      start              = '<leader>a',
+      start_with_preview = '<leader>A',
+    }
+})
 
 require("obsidian").setup({
   dir = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/amber",
@@ -245,17 +253,12 @@ require("obsidian").setup({
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  r = { "<cmd>Trouble lsp_references<cr>"       , "References" }           ,
+  f = { "<cmd>Trouble lsp_definitions<cr>"      , "Definitions" }          ,
+  d = { "<cmd>Trouble document_diagnostics<cr>" , "Diagnostics" }          ,
+  q = { "<cmd>Trouble quickfix<cr>"             , "QuickFix" }             ,
+  l = { "<cmd>Trouble loclist<cr>"              , "LocationList" }         ,
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-}
-
-lvim.builtin.which_key.mappings["g"] = {
-  name = "Go To...",
-  d = { "<cmd>vim.lsp.buf.definition()<cr>", "Definition" },
 }
 
 vim.g["test#neovim#start_normal"] = 1 -- start test buffer in Normal mode
@@ -285,14 +288,52 @@ vim.keymap.set('t', '<C-n>', '<C-\\><C-n><C-w>l', { noremap = true })
 vim.keymap.set('n', 'Y', 'y$', { noremap = true })
 
 -- Make a newline above and below the cursor
-vim.keymap.set('n', '<Leader><CR>', 'O<esc><Down>o<esc><Up>', { noremap = true })
+vim.keymap.set('n', '<leader><CR>', 'O<esc><Down>o<esc><Up>', { noremap = true })
 
 -- use qq to record into register 'q', and Q to replay it
 vim.keymap.set('n', 'Q', '@q', { noremap = true })
 
 -- Create splits, using symbols that look like the division that i want to create
-vim.keymap.set("n", "<Leader>|", ":vsplit<CR>", { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>-', ':split<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>|", ":vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>-', ':split<CR>',  { noremap = true, silent = true })
+
+-- `leap.nvim` recommended default config
+vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
+
+-- The following is directly copied from the recommended config section of the
+-- "leap" docs, accessed on 2026-02-06
+-- 
+-- Highly recommended: define a preview filter to reduce visual noise
+-- and the blinking effect after the first keypress
+-- (see `:h leap.opts.preview`).
+-- For example, skip preview if the first character of the match is
+-- whitespace or is in the middle of an alphabetic word:
+require('leap').opts.preview = function (ch0, ch1, ch2)
+  return not (
+    ch1:match('%s')
+    or (ch0:match('%a') and ch1:match('%a') and ch2:match('%a'))
+  )
+end
+
+-- Define equivalence classes for brackets and quotes, in addition to
+-- the default whitespace group:
+require('leap').opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
+
+-- Use the traversal keys to repeat the previous motion without
+-- explicitly invoking Leap:
+require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+
+-- Automatic paste after remote yank operations:
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'RemoteOperationDone',
+  group = vim.api.nvim_create_augroup('LeapRemote', {}),
+  callback = function (event)
+    if vim.v.operator == 'y' and event.data.register == '"' then
+      vim.cmd('normal! p')
+    end
+  end,
+})
 
 -- `which_key` menu for highlight options
 lvim.builtin.which_key.mappings["h"] = {
